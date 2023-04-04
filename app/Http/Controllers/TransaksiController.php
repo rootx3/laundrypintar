@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\transaksi;
-
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoretransaksiRequest;
 use App\Http\Requests\UpdatetransaksiRequest;
-
+use Illuminate\Support\Facades\Validator;
 class TransaksiController extends Controller
 {
     /**
@@ -58,9 +58,10 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(transaksi $transaksi)
+    public function edit(transaksi $transaksi,$id)
     {
-        //
+        $data = transaksi::find($id);
+        return view('/admin/content/transaksi/edit')->with('data',$data);
     }
 
     /**
@@ -72,7 +73,13 @@ class TransaksiController extends Controller
      */
     public function update(UpdatetransaksiRequest $request, transaksi $transaksi)
     {
-        //
+        $rules = ([
+           'status'=>'required'
+        ]);
+        $validated = Validator::make($request->all(), $rules);
+        if($validated->fails()){
+            alert()->success('Update Berhasil!');
+        };
     }
 
     /**

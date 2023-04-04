@@ -16,17 +16,13 @@ class NotaController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
-    public function index($id)
-    {
-        $customPaper = array(0,0,567.00,283.80);
-        $data = transaksi::find($id);
-        $detail = detail_transaksi::find($id);
-       
-        $all = $data->merge($detail);
 
+    public function index()
+    {
+        $all = transaksi::all();
+        // $all = detail_transaksi::join('transaksi_15453','transaksi_15453.id','=','detail_transaksi_15453.id_transaksi')->get();
         $pdf = PDF::loadview('/admin/content/cetak/nota', [
-            'all'=>$all
+            'all' => $all
         ]);
         return $pdf->stream();
     }

@@ -14,8 +14,8 @@ class paket extends Model
     public static function getnama($id){
         return paket::where('id',$id)->value('nama_paket');
     }
-    public static function getharga($id){
-        return paket::where('id',$id)->value('harga');
-    }
+    // public static function getharga($id){
+    //     return paket::where('id',$id)->value('harga');
+    // }
 
 }

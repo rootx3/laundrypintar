@@ -167,10 +167,10 @@ class PemesananController extends Controller
                 'tgl' => date('Y-m-d'),
                 'tgl_bayar' => $request->tgl_bayar,
                 'status' => "baru",
-                'diskon'=>$request->diskon,
-                'biaya_tambahan'=>$request->biaya_tambahan,
-                'pajak'=>$request->pajak
-            
+                'diskon' => $request->diskon,
+                'biaya_tambahan' => $request->biaya_tambahan,
+                'pajak' => $request->pajak
+
 
             ]);
             $transaksi = transaksi::where('kode_invoice', $inv)->first();
@@ -180,12 +180,13 @@ class PemesananController extends Controller
                 'qty' => $request->qty,
             ]);
         }
-        if(Auth::user()->role == 'admin'){
-           return redirect('/admin/pemesanan');
+        if (Auth::user()->role == 'admin') {
+            alert()->success('Pemesanan Berhasil!');
+            return redirect('/admin/pemesanan');
         }
-        if(Auth::user()->role == 'kasir'){
+        if (Auth::user()->role == 'kasir') {
+            alert()->success('Pemesanan Berhasil!');
             return redirect('/kasir/pemesanan');
         }
-
     }
 }

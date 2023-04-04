@@ -64,9 +64,11 @@ Route::group(['middleware' => ['web', 'admin']], function () {
         });
         Route::group(['prefix' => 'laporan'], function () {
             Route::get('/', 'App\Http\Controllers\DetailTransaksiController@index');
+           
         });
         Route::group(['prefix' => 'transaksi'], function () {
             Route::get('/', 'App\Http\Controllers\TransaksiController@index');
+            Route::get('/edit/{id}','App\Http\Controllers\TransaksiController@edit');
         });
         Route::group(['prefix' => 'pemesanan'], function () {
             Route::get('/', 'App\Http\Controllers\PemesananController@index');
@@ -84,6 +86,7 @@ Route::group(['middleware' => ['web', 'kasir']], function () {
         Route::get('/', 'App\Http\Controllers\AdminController@index');
         Route::group(['prefix' => 'laporan'], function () {
             Route::get('/', 'App\Http\Controllers\DetailTransaksiController@index');
+            Route::get('/edit/{id}','App\Http\Controllers\TransaksiController@edit');
         });
         Route::group(['prefix' => 'customer'], function () {
             Route::get('/', 'App\Http\Controllers\MemberController@index');
@@ -108,10 +111,11 @@ Route::group(['middleware' => ['web', 'owner']], function () {
     Route::group(['prefix' => 'owner'], function () {
         Route::get('/', 'App\Http\Controllers\AdminController@index');
         Route::group(['prefix' => 'laporan'], function () {
-            Route::get('/', 'App\Http\Controllers\DetailTransaksiController@index');
+            Route::get('/', 'App\Http\Controllers\TransaksiController@index');
+            Route::get('/edit/{id}','App\Http\Controllers\TransaksiController@edit');
         });
     });
 });
 
 
-Route::get('/cetak/{id}', 'App\Http\Controllers\NotaController@index');
+Route::get('/cetak', 'App\Http\Controllers\NotaController@index');

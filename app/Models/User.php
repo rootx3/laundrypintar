@@ -25,7 +25,7 @@ class User extends Authenticatable
         'id_outlet'
     ];
 
-    protected $table ='user_15453';
+    protected $table = 'user_15453';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,4 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public static function getnama($id)
+    {
+        return user::where('id', $id)->value('name');
+    }
 }

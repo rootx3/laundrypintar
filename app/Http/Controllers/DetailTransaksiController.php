@@ -58,9 +58,9 @@ class DetailTransaksiController extends Controller
      * @param  \App\Models\detail_transaksi  $detail_transaksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(detail_transaksi $detail_transaksi)
+    public function edit(detail_transaksi $detail_transaksi,$id)
     {
-        //
+       //
     }
 
     /**

@@ -107,6 +107,7 @@ class PaketController extends Controller
             paket::find($id)->update($request->all());
             alert()->success('Update Berhasil!');
         }
+        
         return redirect('/admin/paket');
     }
 

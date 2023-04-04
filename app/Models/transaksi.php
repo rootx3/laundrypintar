@@ -25,4 +25,5 @@ class transaksi extends Model
     ];
 
     protected $table = 'transaksi_15453';
+  
 }
