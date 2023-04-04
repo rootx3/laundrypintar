@@ -114,5 +114,4 @@ Route::group(['middleware' => ['web', 'owner']], function () {
 });
 
 
-
-Route::get('/cetak', 'App\Http\Controllers\NotaController@index');
+Route::get('/cetak/{id}', 'App\Http\Controllers\NotaController@index');

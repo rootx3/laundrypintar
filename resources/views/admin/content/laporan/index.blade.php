@@ -31,7 +31,7 @@
                             <td>{{$d->status}}</td>
                             <td>{{$d->dibayar}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary  btn-sm">
+                                <a href="/cetak/{{$d['id']}}" class="btn btn-primary  btn-sm">
                                     <span>cetak</span>
                                 </a>
                             </td>

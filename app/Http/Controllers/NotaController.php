@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\transaksi;
 use App\Models\detail_transaksi;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -14,24 +15,22 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    
+    public function index($id)
     {
-        $detail = detail_transaksi::all();
-        $data = transaksi::all();
-        return view ('/admin/content/cetak/nota',compact('cetak'))->with([
-         'data' => $data,
-         'detail' => $detail
+        $customPaper = array(0,0,567.00,283.80);
+        $data = transaksi::find($id);
+        $detail = detail_transaksi::find($id);
+       
+        $all = $data->merge($detail);
+
+        $pdf = PDF::loadview('/admin/content/cetak/nota', [
+            'all'=>$all
         ]);
+        return $pdf->stream();
     }
 
-    public function print(){
-        
-        // $detail = detail_transaksi::find();
-        // $data = transaksi::find();
-        // view()->share('cetak',$data);
-        // PDF::loadView('pdf_view');
-    }
-    
 
     /**
      * Show the form for creating a new resource.
