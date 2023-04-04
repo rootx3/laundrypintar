@@ -71,7 +71,7 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetransaksiRequest $request, transaksi $transaksi)
+    public function update(UpdatetransaksiRequest $request, transaksi $transaksi,$id)
     {
         $rules = ([
            'status'=>'required'
@@ -79,6 +79,7 @@ class TransaksiController extends Controller
         $validated = Validator::make($request->all(), $rules);
         if($validated->fails()){
             alert()->success('Update Berhasil!');
+            return redirect('/admin/transaksi/edit'. $id);
         };
     }
 
