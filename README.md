@@ -24,6 +24,6 @@
 - Melakukan php artisan serve.
 # USER UNTUK LOGIN
 - **USERNAME** : admin ,**PASSWORD** : admin123
-- **USERNAME** : admin2 ,**PASSWORD** : admin2
+- **USERNAME** : admin2 ,**PASSWORD** : admin234 (masuk sebagai admin di outlet 2)
 - **USERNAME** : kasir ,**PASSWORD** : kasir123
 - **USERNAME** : owner ,**PASSWORD** : owner123
