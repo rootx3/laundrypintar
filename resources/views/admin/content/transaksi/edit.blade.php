@@ -18,12 +18,28 @@
                                             <option value="{{ $data->status }}" selected>{{ $data->status }}</option>
                                             <option value="proses">proses
                                             </option>
+                                            <option value="proses">proses
+                                            </option>
                                             <option value="selesai">selesai
                                             </option>
                                             <option value="diambil">diambil
                                             </option>
                                         </select>
                                     </div>
+                                    <div class="col-sm">
+                                        <select name="dibayar" class="form-control  form-select "
+                                            aria-label=".form-select-sm example">
+                                            <option value="{{ $data->dibayar }}" selected>{{ $data->dibayar }}</option>
+                                            <option value="dibayar">dibayar
+                                            </option>
+                                            <option value="belum_dibayar">belum dibayar
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Tanggal Bayar</label>
+                                    <input type="date" class="form-control"  placeholder="Tanggal Bayar">
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block">
                                     <b>Simpan</b>

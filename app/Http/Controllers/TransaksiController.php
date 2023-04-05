@@ -7,6 +7,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoretransaksiRequest;
 use App\Http\Requests\UpdatetransaksiRequest;
 use Illuminate\Support\Facades\Validator;
+use App\Models\detail_transaksi;
 
 class TransaksiController extends Controller
 {
@@ -61,8 +62,9 @@ class TransaksiController extends Controller
      */
     public function edit(transaksi $transaksi, $id)
     {
+         
         $data = transaksi::find($id);
-        return view('/admin/content/transaksi/edit')->with('data', $data);
+        return view('/admin/content/transaksi/edit')->with('data',$data);
     }
 
     /**
@@ -75,8 +77,11 @@ class TransaksiController extends Controller
     public function update(UpdatetransaksiRequest $request, transaksi $transaksi, $id)
     {
         $rules = ([
-            'status' => 'required'
+            'status' => 'required',
+            'dibayar' => 'required',
+            'tgl_bayar'=>'required'
         ]);
+        
         transaksi::find($id)->update($request->all(), $rules);
         alert()->success('Update Berhasil!');
 

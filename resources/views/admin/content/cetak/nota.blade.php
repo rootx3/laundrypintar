@@ -20,34 +20,34 @@
                         <center>
                             <h3>Laundry Pintar</h3>
                         </center>
-                        <table border="2" style="width:100%">
+                        <table class="table " width="100%" border="1" cellspacing="0">
                             <thead>
-                                <tr class="text-center">
-                                    <th scope="col"> <b>Nama Member</b></th>
-                                    <th scope="col"><b>Tanggal</b></th>
-                                    <th scope="col"><b>Outlet </b></th>
-                                    <th scope="col"> <b>Batas Waktu</b></th>
-                                    <th scope="col"><b>Tambahan</b></th>
-                                    <th scope="col"><b>Diskon</b> </th>
-                                    <th scope="col"><b>Pajak</b> </th>
-                                    <th scope="col"><b>Status</b> </th>
-                                    <th scope="col"><b>Bayar</b> </th>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Outlet</th>
+                                    <th>Invoice</th>
+                                    <th>Member</th>
+                                    <th>Tanggal</th>
+                                    <th>Status</th>
+                                    <th>Dibayar</th>
+                                    <th>Paket</th>
+                                    <th>Jumlah</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($all as  $b)
+                                @php $i=1 @endphp
+                                @foreach ($all as $d)
                                     <tr>
-                                        <td>{{ App\Models\member::getnama($b->id_member) }} </td>
-                                        <td> {{ date('d-m-Y', strtotime($b->tgl)) }} </td>
-                                        <td> {{ App\Models\outlet::getnama($b->id_outlet) }} </td>
-                                        <td>{{ $b->batas_waktu }}</td>
-                                        <td>{{ $b->biaya_tambahan }}</td>
-                                        <td>{{ $b->diskon }}</td>
-                                        <td>{{ $b->pajak }}</td>
-                                        <td>{{$b->status}}</td>
-                                        <td>{{$b->dibayar}}</td>
+                                        <td>{{ $i++ }}</td>
+                                        <td>{{ App\Models\outlet::getnama($d->id_outlet) }}</td>
+                                        <td>{{ $d->kode_invoice }}</td>
+                                        <td>{{ App\Models\member::getnama($d->id_member) }}</td>
+                                        <td> {{ date('d-m-Y', strtotime($d->tgl)) }}</td>
+                                        <td>{{ $d->status }}</td>
+                                        <td>{{ $d->dibayar }}</td>
+                                        <td>{{App\Models\paket::getnama($d->id_paket)}}</td>
+                                        <td>{{$d->qty}}</td>
                                     </tr>
-                                    
                                 @endforeach
                             </tbody>
                         </table>

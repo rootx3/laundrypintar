@@ -15,8 +15,8 @@
                                 <th>Member</th>
                                 <th>Tanggal</th>
                                 <th>Batas Waktu</th>
-                                <th>Tanggal Bayar</th>
-                                <th>Biaya Tambahan</th>
+                                <th> Bayar</th>
+                                <th> Tambahan</th>
                                 <th>Diskon</th>
                                 <th>Pajak</th>
                                 <th>Status</th>
@@ -31,9 +31,9 @@
                                     <td>{{ App\Models\outlet::getnama($d->id_outlet) }}</td>
                                     <td>{{ $d->kode_invoice }}</td>
                                     <td>{{ App\Models\member::getnama($d->id_member) }} </td>
-                                    <td>{{ $d->tgl }}</td>
-                                    <td>{{ $d->batas_waktu }}</td>
-                                    <td>{{ $d->tgl_bayar }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($d->tgl)) }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($d->batas_waktu)) }}</td>
+                                    <td>{{ date('d-m-Y', strtotime($d->tgl_bayar)) }}</td>
                                     <td>{{ $d->biaya_tambahan }}</td>
                                     <td>{{ $d->diskon }}</td>
                                     <td>{{ $d->pajak }}</td>

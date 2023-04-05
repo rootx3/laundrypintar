@@ -16,8 +16,9 @@ class DetailTransaksiController extends Controller
      */
     public function index()
     {
-        $data =  transaksi::all();
-        return view('/admin/content/laporan/index')->with('data',$data);
+         $all = detail_transaksi::join('transaksi_15453','transaksi_15453.id','=','detail_transaksi_15453.id_transaksi')->get();
+        // $data =  transaksi::all();
+        return view('/admin/content/laporan/index')->with('all',$all);
     }
 
     /**

@@ -123,5 +123,5 @@ Route::group(['middleware' => ['web', 'owner']], function () {
     });
 });
 
-
-Route::get('/cetak', 'App\Http\Controllers\NotaController@index');
+Route::get('/excel', 'App\Http\Controllers\NotaController@index');
+Route::get('/excel/export', 'App\Http\Controllers\NotaController@export');

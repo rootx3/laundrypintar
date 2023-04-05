@@ -140,7 +140,6 @@ class PemesananController extends Controller
         $config = ('outlet' . Auth::user()->id_outlet . '-');
         $inv = IdGenerator::generate(['table' => 'transaksi_15453', 'field' => 'kode_invoice', 'length' => 13, 'prefix' => $config, 'reset_on_prefix_change' => true]);
         $validate = [
-            'tgl_bayar' => 'required',
             'id_member' => 'required',
             'batas_waktu' => 'required',
             'dibayar' => 'required',

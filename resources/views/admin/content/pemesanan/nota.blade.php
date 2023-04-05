@@ -24,9 +24,9 @@
                 <input type="number" id="qty" name="qty" min="1" style="width:100%;" value="1">
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-2">
             <div class="m-2">
-                <label for="">Action</label>
+                <label for="">Action</label> 
                 @if (Auth()->user()->role == 'admin')
                 <a href="/admin/pemesanan/delete/{{$key}}" class="btn btn-danger">delete</a>
                 @elseif (Auth()->user()->role == 'kasir')
@@ -77,9 +77,8 @@
     <div class="m-2">
         <label for="">dibayar</label>
         <select name="dibayar" id="" style="width:100%">
-            <option value="" selected></option>
+            <option value="belum_dibayar" selected>belum dibayar</option>
             <option value="dibayar">dibayar</option>
-            <option value="belum_dibayar">belum dibayar</option>
         </select>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">

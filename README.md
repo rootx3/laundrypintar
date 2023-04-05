@@ -20,7 +20,7 @@
 - Melakukan php migrate:fresh –seed.
 - Melakukan php artisan serve.
 # USER UNTUK LOGIN
-- **username** : admin ,**password** : admin123
-- **username** : admin2 ,**password** : admin2
-- **username** : kasir ,**password** : kasir123
-- **username** : owner ,**password** : owner123
+- **USERNAME** : admin ,**PASSWORD** : admin123
+- **USERNAME** : admin2 ,**PASSWORD** : admin2
+- **USERNAME** : kasir ,**PASSWORD** : kasir123
+- **USERNAME** : owner ,**PASSWORD** : owner123

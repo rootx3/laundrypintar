@@ -6,6 +6,8 @@ use App\Models\transaksi;
 use App\Models\detail_transaksi;
 use RealRashid\SweetAlert\Facades\Alert;
 use PDF;
+use App\Exports\LaporanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class NotaController extends Controller
@@ -19,14 +21,18 @@ class NotaController extends Controller
 
     public function index()
     {
-        $all = transaksi::all();
-        // $all = detail_transaksi::join('transaksi_15453','transaksi_15453.id','=','detail_transaksi_15453.id_transaksi')->get();
+        // $all = transaksi::all();
+        $all = detail_transaksi::join('transaksi_15453', 'transaksi_15453.id', '=', 'detail_transaksi_15453.id_transaksi')->get();
         $pdf = PDF::loadview('/admin/content/cetak/nota', [
             'all' => $all
         ]);
-        return $pdf->stream();
+        return $pdf->download('laporan-Laundry.pdf');
+        // return view('/admin/content/cetak/nota')->with('all',$all);
     }
-
+    public function export()
+    {
+        return Excel::download(new LaporanExport, 'laporan-laundry.xlsx');
+    }
 
     /**
      * Show the form for creating a new resource.
