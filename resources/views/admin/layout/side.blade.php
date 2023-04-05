@@ -137,5 +137,11 @@
             <span> Pelanggan </span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link " href="/kasir/transaksi">
+            <i class="fa fa-money-bill "></i>
+            <span>Transaksi</span>
+        </a>
+    </li>
 </ul>
 @endif

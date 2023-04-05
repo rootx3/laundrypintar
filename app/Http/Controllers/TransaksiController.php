@@ -7,6 +7,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Requests\StoretransaksiRequest;
 use App\Http\Requests\UpdatetransaksiRequest;
 use Illuminate\Support\Facades\Validator;
+
 class TransaksiController extends Controller
 {
     /**
@@ -17,7 +18,7 @@ class TransaksiController extends Controller
     public function index()
     {
         $data = transaksi::all();
-        return view('/admin/content/transaksi/index')->with('data',$data);
+        return view('/admin/content/transaksi/index')->with('data', $data);
     }
 
     /**
@@ -58,10 +59,10 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(transaksi $transaksi,$id)
+    public function edit(transaksi $transaksi, $id)
     {
         $data = transaksi::find($id);
-        return view('/admin/content/transaksi/edit')->with('data',$data);
+        return view('/admin/content/transaksi/edit')->with('data', $data);
     }
 
     /**
@@ -71,16 +72,20 @@ class TransaksiController extends Controller
      * @param  \App\Models\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetransaksiRequest $request, transaksi $transaksi,$id)
+    public function update(UpdatetransaksiRequest $request, transaksi $transaksi, $id)
     {
         $rules = ([
-           'status'=>'required'
+            'status' => 'required'
         ]);
-        $validated = Validator::make($request->all(), $rules);
-        if($validated->fails()){
-            alert()->success('Update Berhasil!');
-            return redirect('/admin/transaksi/edit'. $id);
-        };
+        transaksi::find($id)->update($request->all(), $rules);
+        alert()->success('Update Berhasil!');
+
+        if (Auth()->user()->role == 'admin') {
+            return redirect('/admin/transaksi');
+        }
+        if (Auth()->user()->role == 'kasir') {
+            return redirect('/kasir/transaksi');
+        }
     }
 
     /**

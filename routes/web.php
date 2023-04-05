@@ -69,6 +69,7 @@ Route::group(['middleware' => ['web', 'admin']], function () {
         Route::group(['prefix' => 'transaksi'], function () {
             Route::get('/', 'App\Http\Controllers\TransaksiController@index');
             Route::get('/edit/{id}','App\Http\Controllers\TransaksiController@edit');
+            Route::post('/edit/{id}','App\Http\Controllers\TransaksiController@update');
         });
         Route::group(['prefix' => 'pemesanan'], function () {
             Route::get('/', 'App\Http\Controllers\PemesananController@index');
@@ -101,6 +102,11 @@ Route::group(['middleware' => ['web', 'kasir']], function () {
             Route::post('/cart/{id}', 'App\Http\Controllers\PemesananController@store');
             Route::post('/cek', 'App\Http\Controllers\PemesananController@checkout');
             Route::get('/delete/{id}', 'App\Http\Controllers\PemesananController@destroy');
+        });
+        Route::group(['prefix' => 'transaksi'], function () {
+            Route::get('/', 'App\Http\Controllers\TransaksiController@index');
+            Route::get('/edit/{id}','App\Http\Controllers\TransaksiController@edit');
+            Route::post('/edit/{id}','App\Http\Controllers\TransaksiController@update');
         });
     });
 });
