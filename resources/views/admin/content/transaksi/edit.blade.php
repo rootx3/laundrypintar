@@ -18,8 +18,6 @@
                                             <option value="{{ $data->status }}" selected>{{ $data->status }}</option>
                                             <option value="proses">proses
                                             </option>
-                                            <option value="proses">proses
-                                            </option>
                                             <option value="selesai">selesai
                                             </option>
                                             <option value="diambil">diambil
@@ -39,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Tanggal Bayar</label>
-                                    <input type="date" class="form-control"  placeholder="Tanggal Bayar">
+                                    <input name="tgl_bayar" type="date" class="form-control" placeholder="Tanggal Bayar">
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block">
                                     <b>Simpan</b>

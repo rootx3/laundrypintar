@@ -29,9 +29,9 @@ class NotaController extends Controller
         return $pdf->download('laporan-Laundry.pdf');
         // return view('/admin/content/cetak/nota')->with('all',$all);
     }
-    public function export()
+    public function export(Request $request)
     {
-        return Excel::download(new LaporanExport, 'laporan-laundry.xlsx');
+        return Excel::download(new LaporanExport,'laporan-laundry.xlsx');
     }
 
     /**

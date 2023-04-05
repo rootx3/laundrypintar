@@ -113,7 +113,8 @@ class OutletController extends Controller
      */
     public function destroy(outlet $outlet, $id)
     {
-        outlet::where('id', $id)->delete();
+        $outlet =outlet::where('id', $id);
+        $outlet->delete();
         alert()->success('Delete Berhasil');
         return redirect('/admin/outlet');
     }

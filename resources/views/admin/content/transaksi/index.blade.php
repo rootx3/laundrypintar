@@ -33,7 +33,11 @@
                                     <td>{{ App\Models\member::getnama($d->id_member) }} </td>
                                     <td>{{ date('d-m-Y', strtotime($d->tgl)) }}</td>
                                     <td>{{ date('d-m-Y', strtotime($d->batas_waktu)) }}</td>
+                                    @if(empty($d->tgl_bayar))
+                                    <td></td>
+                                    @elseif(!empty($d->tgl_bayar))
                                     <td>{{ date('d-m-Y', strtotime($d->tgl_bayar)) }}</td>
+                                    @endif
                                     <td>{{ $d->biaya_tambahan }}</td>
                                     <td>{{ $d->diskon }}</td>
                                     <td>{{ $d->pajak }}</td>

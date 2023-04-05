@@ -13,7 +13,7 @@
 - Dasshboard untuk  cetak laporan
 # PERSYARATAN
 - Mysql Terbaru
-- Php Version 8 atau di atasnya
+- Php Version 8.0+ atau di atasnya
 # CARA INSTALASI
 - Melakuakan git clone https://github.com/rootx3/laundrypintar.
 - Membuat .env pada folder yang sudah di download.

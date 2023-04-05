@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('kode_invoice', 100);
             $table->unsignedBigInteger('id_member');
             $table->dateTime('tgl');
-            $table->timestamp('batas_waktu');
-            $table->dateTime('tgl_bayar')->nullable()->default(null);
+            $table->datetime('batas_waktu');
+            $table->timestamp('tgl_bayar')->nullable()->default(null);
             $table->integer('biaya_tambahan')->nullable();
             $table->double('diskon')->nullable();
             $table->integer('pajak')->nullable();

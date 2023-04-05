@@ -53,7 +53,7 @@ class MemberSeeder extends Seeder
             'name' => 'admin2',
             'username' => 'admin2',
             'role' => 'admin',
-            'password'=>bcrypt('admin2'),
+            'password'=>bcrypt('admin234'),
             'id_outlet'=>'2'
         ]);
         user::create([
