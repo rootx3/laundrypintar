@@ -22,7 +22,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="jenis_kelamin" class="form-control  form-select " aria-label=".form-select-sm example">
-                                    <option value="" selected></option>
+                                    <option value="" selected>-- Jenis Kelamin --</option>
                                     <option value="Laki-laki">Laki-laki
                                     </option>
                                     <option value="Perempuan">Perempuan

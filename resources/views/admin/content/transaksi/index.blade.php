@@ -14,7 +14,7 @@
                                 <th>Invoice</th>
                                 <th>Member</th>
                                 <th>Tanggal</th>
-                                <th>Batas Waktu</th>
+                                <th>Batas Bayar</th>
                                 <th> Bayar</th>
                                 <th> Tambahan</th>
                                 <th>Diskon</th>

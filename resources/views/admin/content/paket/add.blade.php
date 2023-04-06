@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <select name="id_outlet" class="form-control  form-select " aria-label=".form-select-sm example">
-                                        <option value="" selected></option>
+                                        <option value="" selected>-- Outlet --</option>
                                         @foreach($data as $o)
                                         <option value="{{$o->id}}">{{$o->nama}}</option>
                                         @endforeach
@@ -26,7 +26,7 @@
                             </div>
                             <div class="form-group">
                                 <select name="jenis" class="form-control  form-select " aria-label=".form-select-sm example">
-                                    <option value="" selected></option>
+                                    <option value="" selected>-- Jenis Paket --</option>
                                     <option value="selimut">selimut</option>
                                     <option value="kiloan">kiloan</option>
                                     <option value="bed_cover">bed_cover</option>

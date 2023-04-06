@@ -117,8 +117,7 @@ Route::group(['middleware' => ['web', 'owner']], function () {
     Route::group(['prefix' => 'owner'], function () {
         Route::get('/', 'App\Http\Controllers\AdminController@index');
         Route::group(['prefix' => 'laporan'], function () {
-            Route::get('/', 'App\Http\Controllers\TransaksiController@index');
-            Route::get('/edit/{id}','App\Http\Controllers\TransaksiController@edit');
+            Route::get('/', 'App\Http\Controllers\DetailTransaksiController@index');
         });
     });
 });

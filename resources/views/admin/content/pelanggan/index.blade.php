@@ -35,7 +35,7 @@
                             <td>{{$d->nama}}</td>
                             <td>{!!Str::limit($d['alamat'],40)!!}</td>
                             <td style="width: 15%;">{{$d->jenis_kelamin}}</td>
-                            <td>{{{$d->tlp}}}</td>
+                            <td>0{{{$d->tlp}}}</td>
                             <td>
                             @if(Auth()->user()->role == 'admin')
                                 <a href="/admin/customer/edit/{{$d['id']}}" class="btn btn-warning  btn-sm">
