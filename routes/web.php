@@ -21,7 +21,7 @@ use App\Http\Controllers\TransaksiController;
 */
 
 
-
+// depan route
 Route::get('/', 'App\Http\Controllers\AdminController@login');
 Route::post('/', 'App\Http\Controllers\AdminController@flogin');
 Route::get('/logout', 'App\Http\Controllers\AdminController@logout');
@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web', 'admin']], function () {
             Route::post('/add', 'App\Http\Controllers\MemberController@store');
             Route::get('/edit/{id}', 'App\Http\Controllers\MemberController@edit');
             Route::post('/edit/{id}', 'App\Http\Controllers\MemberController@update');
-            Route::resource('delete2', MemberController::class);
+            
         });
         Route::group(['prefix' => 'user'], function () {
             Route::get('/', 'App\Http\Controllers\AuthController@index');
@@ -121,6 +121,7 @@ Route::group(['middleware' => ['web', 'owner']], function () {
         });
     });
 });
-
+Route::resource('delete2', MemberController::class);
+//export route
 Route::get('/excel', 'App\Http\Controllers\NotaController@index');
 Route::get('/excel/export', 'App\Http\Controllers\NotaController@export');

@@ -7,9 +7,11 @@
                 <div class="col">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Edit Outlet!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Edit pelanggan!</h1>
                         </div>
-                        <form class="user" method="post" action="">
+                        <form class="user" method="post" 
+                      
+                        action="">
                             @csrf
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">

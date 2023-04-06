@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a href="/admin/outlet/add" class="btn btn-success btn-sm" type="button">
-            <Tambah><i class="fa fa-plus"></i> Tambah
+           <i class="fa fa-plus"></i> Tambah
         </a>
     </div>
     <div class="card shadow mb-4">

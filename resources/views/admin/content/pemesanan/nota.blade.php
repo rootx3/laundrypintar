@@ -1,7 +1,11 @@
 @php
     $total = 0;
 @endphp
-<form action="/admin/pemesanan/cek" method="post">
+<form
+    @if (Auth()->user()->role == 'admin') action="/admin/pemesanan/cek"
+@elseif(Auth()->user()->role == 'kasir')
+action="/kasir/pemesanan/cek" @endif
+    method="post">
     @csrf
     @if (!empty($data))
         @foreach ($data as $key => $value)
@@ -27,7 +31,7 @@
                     <div class="m-2">
                         <label for="">Jumlah <span style="color:red;">*</span></label>
                         <input type="text" id="qty" name="qty" min="1"
-                            style="width:100%;"onkeyup="sum();" >
+                            style="width:100%;"onkeyup="sum();">
                     </div>
                 </div>
                 <div class="col-2">
@@ -70,7 +74,8 @@
     </div>
     <div class="m-2">
         <label for="">Biaya Tambahan</label>
-        <input type="text" name="biaya_tambahan" id="biayatambahan" style="width: 100%;"onkeyup="sum();"value="0">
+        <input type="text" name="biaya_tambahan" id="biayatambahan"
+            style="width: 100%;"onkeyup="sum();"value="0">
     </div>
     <div class="m-2">
         <label for="">Diskon</label>
@@ -84,7 +89,7 @@
         <label for="">Dibayar<span style="color:red;">*</span></label>
         <select name="dibayar" id="" style="width:100%">
             <option value="" selected>-- Pilih --</option>
-            <option value="belum_dibayar" >belum dibayar</option>
+            <option value="belum_dibayar">belum dibayar</option>
             <option value="dibayar">dibayar</option>
         </select>
     </div>

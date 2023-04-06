@@ -53,12 +53,12 @@ class MemberController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin
         ]);
         alert()->success('Add Successfully');
-        if(Auth()->user()->role == 'admin'){
+        if (Auth()->user()->role == 'admin') {
             return redirect('/admin/customer');
-        }if(Auth()->user()->role == 'kasir'){
+        }
+        if (Auth()->user()->role == 'kasir') {
             return redirect('/kasir/customer');
         }
-       
     }
 
     /**
@@ -106,7 +106,13 @@ class MemberController extends Controller
             member::find($id)->update($request->all());
             alert()->success('Update Berhasil');
         }
-        return redirect('/admin/customer');
+        if(Auth()->user()->role=='admin'){
+            return redirect('/admin/customer');
+        }else{
+            return redirect('/kasir/customer');
+        }
+            
+        
     }
 
     /**
@@ -119,6 +125,10 @@ class MemberController extends Controller
     {
         member::where('id', $id)->delete();
         alert()->success('Delete Successfully');
-        return redirect('/admin/customer');
+        if (Auth()->user()->role == 'admin') {
+            return redirect('/admin/customer');
+        } else {
+            return redirect('/kasir/customer');
+        }
     }
 }
